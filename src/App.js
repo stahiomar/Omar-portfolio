@@ -85,30 +85,6 @@ const App = () => {
     }
   ];
 
-  const projects = [
-    {
-      title: 'E-Commerce Platform',
-      description: 'Full-featured online shopping platform with payment integration, user authentication, and admin dashboard.',
-      technologies: ['React', 'Node.js', 'Stripe', 'MongoDB'],
-      live: '#',
-      github: '#'
-    },
-    {
-      title: 'Task Management App',
-      description: 'Collaborative task management application with real-time updates, drag-and-drop interface, and team collaboration features.',
-      technologies: ['Next.js', 'Socket.io', 'PostgreSQL', 'Tailwind CSS'],
-      live: '#',
-      github: '#'
-    },
-    {
-      title: 'Weather Dashboard',
-      description: 'Interactive weather dashboard with location-based forecasts, historical data visualization, and responsive design.',
-      technologies: ['Vue.js', 'Chart.js', 'OpenWeather API', 'CSS3'],
-      live: '#',
-      github: '#'
-    }
-  ];
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
