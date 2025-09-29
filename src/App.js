@@ -13,42 +13,63 @@ const App = () => {
 
   const experience = [
     {
-      title: 'Stagiaire',
+      title: 'Intern',
       company: 'Marketing Confort',
-      period: '2025 (6 mois)',
+      period: '2025 (6 months)',
       description: [
-        "Participation à la conception et au développement d’un intranet d’entreprise basé sur une architecture microservices.",
-        "Implémentation de module de gestion des absences et de gestion des secrets avec Next.js (frontend) et Spring Boot (backend).",
-        "Implémentation du module KeyStore permettant la gestion sécurisée des clés et secrets techniques (API keys, tokens, identifiants).",
-        "Développement de la page profil employé permettant à chaque collaborateur de consulter ses informations personnelles dans l’intranet.",
-        "Développement d’une interface intranet pour consulter et modifier les configurations backend sans accéder au code source."
+        "Participated in the design and development of a company intranet based on a microservices architecture.",
+        "Implemented absence management and secrets management modules with Next.js (frontend) and Spring Boot (backend).",
+        "Developed the KeyStore module for secure management of technical keys and secrets (API keys, tokens, credentials).",
+        "Built the employee profile page allowing collaborators to view their personal information in the intranet.",
+        "Developed an intranet interface to consult and update backend configurations without accessing the source code."
       ],
-      technologies: ['Spring Boot', 'Next.js', 'PostgreSQL', 'Amazon S3', 'Gitlab CI/CD', 'Docker', 'Kubernetes', 'Keycloak', 'Nexus']
+      technologies: [
+        'Spring Boot',
+        'Next.js',
+        'PostgreSQL',
+        'Amazon S3',
+        'Gitlab CI/CD',
+        'Docker',
+        'Kubernetes',
+        'Keycloak',
+        'Nexus'
+      ]
     },
     {
-      title: 'Stagiaire',
+      title: 'Intern',
       company: 'Devoteam Africa',
-      period: '2024 (2 mois)',
+      period: '2024 (2 months)',
       description: [
-        "Participation à la conception d'une solution SIRH basée sur une architecture microservices.",
-        "Développement du frontend avec React et du backend avec Spring Boot.",
-        "Intégration des APIs pour la gestion des données utilisateurs, les congés et des processus RH.",
-        "Déploiement de l'application sur Kubernetes, en utilisant Docker pour la containerisation et Docker Hub pour le stockage des images."
+        "Contributed to the design of an HRIS solution based on a microservices architecture.",
+        "Developed the frontend with React and the backend with Spring Boot.",
+        "Integrated APIs for user data management, leave management, and HR processes.",
+        "Deployed the application on Kubernetes, using Docker for containerization and Docker Hub for image storage."
       ],
-      technologies: ['Angular', 'Spring Boot', 'Spring Cloud', 'Spring JPA', 'MariaDB', 'Amazon S3', 'Kubernetes', 'Docker', 'Docker Hub']
+      technologies: [
+        'Angular',
+        'Spring Boot',
+        'Spring Cloud',
+        'Spring JPA',
+        'MariaDB',
+        'Amazon S3',
+        'Kubernetes',
+        'Docker',
+        'Docker Hub'
+      ]
     },
     {
-      title: 'Stagiaire',
-      company: 'Orange Business Maroc',
-      period: '2023 (1 mois)',
+      title: 'Intern',
+      company: 'Orange Business Morocco',
+      period: '2023 (1 month)',
       description: [
-        "Développement d’une application web pour la création, la génération et la validation de Network Service Descriptors (NSD).",
-        "Implémentation de règles de validation métier pour garantir la conformité des NSD.",
-        "Intégration d’un système permettant de publier ou appliquer les NSD générés vers la plateforme MANO (Management and Orchestration)."
+        "Developed a web application for creating, generating, and validating Network Service Descriptors (NSD).",
+        "Implemented business validation rules to ensure NSD compliance.",
+        "Integrated a system to publish or apply the generated NSDs to the MANO (Management and Orchestration) platform."
       ],
       technologies: ['Django', 'Bootstrap', 'HTML/CSS', 'JavaScript']
     }
   ];
+  
 
   const education = [
     {
@@ -379,12 +400,15 @@ const App = () => {
             className="flex flex-col sm:flex-row gap-6 justify-center items-center"
           >
             <a
-              href="mailto:omarstahi2002@gmail.com"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=omarstahi2002@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-3 bg-gradient-to-r from-purple-600 to-pink-600 px-8 py-4 rounded-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-all duration-200"
             >
               <Mail className="w-5 h-5" />
               Email Me
             </a>
+
             <a
               href="https://github.com/stahiomar/"
               className="flex items-center gap-3 border-2 border-purple-500 px-8 py-4 rounded-lg font-semibold hover:bg-purple-500/20 transition-all duration-200"
