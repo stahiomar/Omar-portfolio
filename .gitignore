@@ -1,0 +1,22 @@
+# Node modules
+node_modules/
+
+# Build output
+build/
+dist/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE/Editor folders
+.vscode/
+.idea/
+
+# Package manager lock files (if using yarn, choose this instead of npm-lock)
+package-lock.json
+yarn.lock
+
+# Miscellaneous files
+*.log
+*.swp
