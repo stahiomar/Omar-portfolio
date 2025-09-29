@@ -6,7 +6,7 @@ import './index.css';
 const App = () => {
   const skills = {
     frontend: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Bootstrap', 'Angular'],
-    backend: ['Node.js', 'Python', 'Django', 'REST APIs', 'GraphQL', 'JWT'],
+    backend: ['Spring boot', 'Python', 'Django', 'REST APIs', 'GraphQL', 'JWT'],
     databases: ['MongoDB', 'PostgreSQL', 'MySQL', 'MariaDB', 'AmazonS3'],
     devops: ['Docker', 'Jenkins,', 'Git', 'CI/CD', 'Linux']
   };
@@ -73,15 +73,50 @@ const App = () => {
 
   const education = [
     {
-      degree: 'Bachelor of Science in Computer Science',
-      institution: 'University of Technology',
-      year: '2019',
-      gpa: '3.8/4.0'
+      degree: 'Computer Engineering and Networks',
+      institution: 'EMSI',
+      period: '2022 - 2025',
+      location: 'Rabat'
     },
     {
-      degree: 'Full Stack Web Development Certification',
-      institution: 'Code Academy',
-      year: '2018'
+      degree: 'Preparatory Cycle',
+      institution: 'EMSI',
+      period: '2020 - 2022',
+      location: 'Rabat'
+    },
+    {
+      degree: 'Baccalaureate in Physical Sciences',
+      institution: 'Cadi Ayyad',
+      period: '2020',
+      location: 'Marrakech'
+    }
+  ];
+
+  const certifications = [
+    {
+      title: 'Building Scalable Java Microservices with Spring Boot and Spring Cloud',
+      issuer: 'Google Cloud - Coursera',
+      icon: 'code'
+    },
+    {
+      title: 'Agile with Atlassian Jira',
+      issuer: 'Atlassian - Coursera',
+      icon: 'briefcase'
+    },
+    {
+      title: 'Modeling Software Systems using UML',
+      issuer: 'The Hong Kong University of Science and Technology - Coursera',
+      icon: 'award'
+    },
+    {
+      title: 'Virtual Networks in Azure',
+      issuer: 'Whizlabs - Coursera',
+      icon: 'server'
+    },
+    {
+      title: 'McKinsey Forward Program',
+      issuer: 'McKinsey Academy',
+      icon: 'award'
     }
   ];
 
@@ -304,7 +339,7 @@ const App = () => {
       </section>
 
       {/* Education & Certifications */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black/20">
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <motion.h2
             className="text-4xl font-bold text-center mb-16"
@@ -316,59 +351,57 @@ const App = () => {
             Education & Certifications
           </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {education.map((edu, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10"
-              >
-                <div className="flex items-center mb-4">
-                  <GraduationCap className="w-6 h-6 text-green-400 mr-3" />
-                  <h3 className="text-xl font-bold">{edu.degree}</h3>
-                </div>
-                <p className="text-gray-300 mb-2">{edu.institution}</p>
-                <p className="text-gray-400">{edu.year}</p>
-                {edu.gpa && <p className="text-sm text-gray-500 mt-2">GPA: {edu.gpa}</p>}
-              </motion.div>
-            ))}
+          {/* Education */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-semibold text-purple-400 mb-6 text-center">Education</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              {education.map((edu, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-purple-500/30 transition-all duration-300"
+                >
+                  <div className="flex items-start mb-4">
+                    <GraduationCap className="w-6 h-6 text-green-400 mr-3 mt-1 flex-shrink-0" />
+                    <div>
+                      <h4 className="text-lg font-bold mb-2">{edu.degree}</h4>
+                      <p className="text-gray-300 text-sm mb-1">{edu.institution}</p>
+                      <p className="text-gray-400 text-sm">{edu.period}</p>
+                      <p className="text-gray-500 text-xs mt-1">{edu.location}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10"
-            >
-              <div className="flex items-center mb-4">
-                <Award className="w-6 h-6 text-yellow-400 mr-3" />
-                <h3 className="text-xl font-bold">AWS Certified Developer</h3>
-              </div>
-              <p className="text-gray-300 mb-2">Amazon Web Services</p>
-              <p className="text-gray-400">2023</p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10"
-            >
-              <div className="flex items-center mb-4">
-                <Award className="w-6 h-6 text-blue-400 mr-3" />
-                <h3 className="text-xl font-bold">MongoDB Certified Developer</h3>
-              </div>
-              <p className="text-gray-300 mb-2">MongoDB Inc.</p>
-              <p className="text-gray-400">2022</p>
-            </motion.div>
+          {/* Certifications */}
+          <div>
+            <h3 className="text-2xl font-semibold text-purple-400 mb-6 text-center">Certifications</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              {certifications.map((cert, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-yellow-500/30 transition-all duration-300"
+                >
+                  <div className="flex items-start mb-3">
+                    <Award className="w-5 h-5 text-yellow-400 mr-3 mt-1 flex-shrink-0" />
+                    <h4 className="text-base font-bold leading-tight">{cert.title}</h4>
+                  </div>
+                  <p className="text-gray-300 text-sm">{cert.issuer}</p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
-
       {/* Contact Section */}
       <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
