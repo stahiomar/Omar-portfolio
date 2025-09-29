@@ -5,10 +5,10 @@ import './index.css';
 
 const App = () => {
   const skills = {
-    frontend: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Tailwind CSS', 'Angular'],
-    backend: ['Node.js', 'Express', 'Python', 'Django', 'REST APIs', 'GraphQL', 'Socket.io', 'JWT'],
-    databases: ['MongoDB', 'PostgreSQL', 'MySQL', 'Redis', 'Firebase'],
-    devops: ['Docker', 'AWS', 'Git', 'GitHub Actions', 'CI/CD', 'Linux', 'Nginx']
+    frontend: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Bootstrap', 'Angular'],
+    backend: ['Node.js', 'Python', 'Django', 'REST APIs', 'GraphQL', 'JWT'],
+    databases: ['MongoDB', 'PostgreSQL', 'MySQL', 'MariaDB', 'AmazonS3'],
+    devops: ['Docker', 'Jenkins,', 'Git', 'CI/CD', 'Linux']
   };
 
   const experience = [
@@ -69,7 +69,7 @@ const App = () => {
       technologies: ['Django', 'Bootstrap', 'HTML/CSS', 'JavaScript']
     }
   ];
-  
+
 
   const education = [
     {
@@ -159,21 +159,45 @@ const App = () => {
             <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
               Full Stack Developer passionate about creating scalable, user-friendly web applications
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.button
+            <div className="flex justify-center">
+              <motion.a
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const contactSection = document.getElementById('contact');
+                  const navHeight = 80;
+                  const elementPosition = contactSection.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+                  const startPosition = window.pageYOffset;
+                  const distance = offsetPosition - startPosition;
+                  const duration = 2000; // 2 seconds - adjust this for speed
+                  let start = null;
+
+                  const animation = (currentTime) => {
+                    if (start === null) start = currentTime;
+                    const timeElapsed = currentTime - start;
+                    const progress = Math.min(timeElapsed / duration, 1);
+
+                    // Easing function for smooth acceleration/deceleration
+                    const ease = progress < 0.5
+                      ? 4 * progress * progress * progress
+                      : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+                    window.scrollTo(0, startPosition + distance * ease);
+
+                    if (timeElapsed < duration) {
+                      requestAnimationFrame(animation);
+                    }
+                  };
+
+                  requestAnimationFrame(animation);
+                }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-purple-600 to-pink-600 px-8 py-3 rounded-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-all duration-200"
+                className="bg-gradient-to-r from-purple-600 to-pink-600 px-10 py-4 rounded-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-all duration-200 text-lg"
               >
-                View My Work
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="border-2 border-purple-500 px-8 py-3 rounded-lg font-semibold hover:bg-purple-500/20 transition-all duration-200"
-              >
-                Contact Me
-              </motion.button>
+                Let's Connect
+              </motion.a>
             </div>
           </motion.div>
         </div>
