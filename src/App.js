@@ -188,7 +188,7 @@ const App = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 1 }}
             >
-              Omar.dev
+              Omar.devv
             </motion.div>
             <div className="hidden md:flex space-x-8">
               {['About', 'Experience', 'Projects', 'Contact'].map((item) => (
