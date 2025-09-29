@@ -1,5 +1,5 @@
 import React from 'react';
-import { Code, Database, Server, Globe, Smartphone, Terminal, Github, Linkedin, Mail, ChevronDown, Award, Briefcase, GraduationCap, ExternalLink } from 'lucide-react';
+import { Code, Database, Server, Terminal, Github, Linkedin, Mail, ChevronDown, Award, GraduationCap } from 'lucide-react';
 import { motion } from 'framer-motion';
 import './index.css';
 
@@ -70,6 +70,41 @@ const App = () => {
     }
   ];
 
+  const projects = [
+    {
+      title: 'Urban Navigation System with Integrated Tram Guide',
+      year: '2025',
+      description: [
+        "Developed a comprehensive urban navigation system with real-time tram tracking and route planning for Salé-Rabat.",
+        "Integrated the Salé-Rabat tramway network for seamless public transportation navigation.",
+        "Implemented secure authentication and authorization using Keycloak.",
+        "Built interactive maps using Mapbox API for route visualization and real-time tram locations.",
+        "Developed responsive frontend with Thymeleaf templates and Spring Boot backend."
+      ],
+      technologies: ['Spring Boot', 'Thymeleaf', 'Mapbox', 'Keycloak']
+    },
+    {
+      title: 'Event and Attendance Management System',
+      year: '2025',
+      description: [
+        "Designed and developed a microservices-based event management platform.",
+        "Implemented service discovery with Eureka and centralized configuration with Spring Cloud Config.",
+        "Built distributed tracing system using Zipkin for monitoring microservices.",
+      ],
+      technologies: ['Angular', 'Spring Boot', 'MySQL', 'Eureka', 'Spring Cloud Config', 'Keycloak', 'Zipkin']
+    },
+    {
+      title: 'Parapharmacy E-commerce with AI Chatbot',
+      year: '2024',
+      description: [
+        "Built a full-featured e-commerce platform for parapharmacy products.",
+        "Integrated DialogFlow AI chatbot for customer support and product recommendations.",
+        "Implemented product catalog, shopping cart, and order management system.",
+        "Designed responsive UI using Bootstrap for optimal user experience."
+      ],
+      technologies: ['Django', 'HTML', 'CSS', 'JavaScript', 'Bootstrap', 'MySQL', 'DialogFlow']
+    }
+  ];
 
   const education = [
     {
@@ -156,7 +191,7 @@ const App = () => {
               DevPortfolio
             </motion.div>
             <div className="hidden md:flex space-x-8">
-              {['About', 'Experience', 'Contact'].map((item) => (
+              {['About', 'Experience', 'Projects', 'Contact'].map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
@@ -324,6 +359,59 @@ const App = () => {
                 </ul>
                 <div className="flex flex-wrap gap-2">
                   {job.technologies.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-3 py-1 bg-purple-500/20 rounded-full text-sm text-purple-300"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <motion.h2
+            className="text-4xl font-bold text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            Academic Projects
+          </motion.h2>
+
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="space-y-8"
+          >
+            {projects.map((project, index) => (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-green-500/30 transition-all duration-300"
+              >
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                  <div>
+                    <h3 className="text-2xl font-bold text-purple-400">{project.title}</h3>
+                  </div>
+                  <span className="text-gray-400 mt-2 md:mt-0">{project.year}</span>
+                </div>
+                <ul className="list-disc list-inside space-y-2 text-gray-300 mb-4">
+                  {project.description.map((line, i) => (
+                    <li key={i}>{line}</li>
+                  ))}
+                </ul>
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies.map((tech) => (
                     <span
                       key={tech}
                       className="px-3 py-1 bg-purple-500/20 rounded-full text-sm text-purple-300"
