@@ -84,6 +84,24 @@ const App = () => {
       technologies: ['Spring Boot', 'Thymeleaf', 'Mapbox', 'Keycloak']
     },
     {
+      title: 'Arabic Dialects Translator',
+      year: '2025',
+      description: [
+        "Developed a web application that translates text between multiple Arabic dialects, including Moroccan, Egyptian, Levantine, Saudi, and more.",
+        "Implemented AI-powered translation using Google's Gemini API for context-aware and accurate dialect conversions.",
+        "Designed a modern, clean, and user-friendly interface to simplify typing and real-time translation interactions.",
+        "Added secure API-key onboarding allowing users to enter and store their Gemini API key on first use.",
+        "Enhanced cross-dialect communication by enabling smooth, natural, and instant translation between regional variations of Arabic."
+      ],
+      technologies: [
+        'React',
+        'JavaScript',
+        'Gemini API',
+        'CSS3',
+        'HTML5'
+      ]
+    },
+    {
       title: 'Event and Attendance Management System',
       year: '2025',
       description: [
