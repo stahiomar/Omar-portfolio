@@ -97,6 +97,24 @@ const App = () => {
       technologies: ['Spring Boot', 'Thymeleaf', 'Mapbox', 'Keycloak']
     },
     {
+      title: 'Dev Helper Tools',
+      year: '2025',
+      description: [
+        "Built a comprehensive suite of 11 essential developer utilities with a modern, premium dark theme interface.",
+        "Implemented tools including JSON Formatter, Regex Tester, Color Palette Generator, Base64/URL Encoder, Hash Generator, and more.",
+        "Created Mock Data Generator supporting 8 data types with multiple output formats (JSON, CSV, numbered list).",
+        "Developed Diff Checker with visual line-by-line comparison and Markdown Previewer with live rendering.",
+        "Designed with glassmorphism effects, smooth animations, and responsive layout for optimal user experience."
+      ],
+      technologies: [
+        'React',
+        'TypeScript',
+        'Vite',
+        'CSS3',
+        'Web Crypto API'
+      ]
+    },
+    {
       title: 'Arabic Dialects Translator',
       year: '2025',
       description: [
