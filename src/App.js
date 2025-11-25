@@ -1,10 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Code, Database, Server, Terminal, Github, Linkedin, Mail, ChevronDown, Award, GraduationCap, Menu, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 import './index.css';
 
 const App = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  // Track scroll progress for progress bar
+  useEffect(() => {
+    const handleScroll = () => {
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (window.scrollY / totalHeight) * 100;
+      setScrollProgress(progress);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   const skills = {
     frontend: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Bootstrap', 'Angular'],
     backend: ['Spring boot', 'Python', 'Django', 'REST APIs', 'GraphQL', 'JWT'],
@@ -197,6 +209,12 @@ const App = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white">
+      {/* Scroll Progress Bar */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 origin-left z-50"
+        style={{ scaleX: scrollProgress / 100 }}
+      />
+
       {/* Skip to content link for accessibility */}
       <a
         href="#main-content"
@@ -302,11 +320,22 @@ const App = () => {
               className="text-center"
             >
               <div className="inline-block mb-6">
-                <div className="w-32 h-32 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 p-1 mx-auto">
+                <motion.div
+                  animate={{
+                    y: [0, -15, 0],
+                    rotate: [0, 5, 0, -5, 0]
+                  }}
+                  transition={{
+                    duration: 6,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                  className="w-32 h-32 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 p-1 mx-auto"
+                >
                   <div className="w-full h-full rounded-full bg-slate-800 flex items-center justify-center">
                     <Code className="w-16 h-16 text-purple-400" />
                   </div>
-                </div>
+                </motion.div>
               </div>
               <h1 className="text-5xl md:text-7xl font-bold mb-6">
                 <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
@@ -351,7 +380,7 @@ const App = () => {
                   }}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-purple-600 to-pink-600 px-10 py-4 rounded-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-all duration-200 text-lg"
+                  className="bg-gradient-to-r from-purple-600 to-pink-600 px-10 py-4 rounded-lg font-semibold hover:from-purple-700 hover:to-pink-700 hover:shadow-[0_0_30px_rgba(168,85,247,0.6)] transition-all duration-200 text-lg"
                 >
                   Let's Connect
                 </motion.a>
@@ -381,7 +410,8 @@ const App = () => {
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
-                  className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-purple-500/30 transition-all duration-300"
+                  whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                  className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-purple-500/50 hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-300"
                 >
                   <div className="flex items-center mb-4">
                     {category === 'frontend' && <Code className="w-6 h-6 text-purple-400 mr-2" />}
@@ -392,12 +422,14 @@ const App = () => {
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {techs.map((tech) => (
-                      <span
+                      <motion.span
                         key={tech}
-                        className="px-3 py-1 bg-white/10 rounded-full text-sm hover:bg-white/20 transition-colors duration-200"
+                        whileHover={{ scale: 1.1, backgroundColor: 'rgba(255,255,255,0.3)' }}
+                        whileTap={{ scale: 0.95 }}
+                        className="px-3 py-1 bg-white/10 rounded-full text-sm cursor-pointer transition-colors duration-200"
                       >
                         {tech}
-                      </span>
+                      </motion.span>
                     ))}
                   </div>
                 </motion.div>
@@ -430,7 +462,8 @@ const App = () => {
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-purple-500/30 transition-all duration-300"
+                  whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                  className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-purple-500/50 hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-300"
                 >
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                     <div>
@@ -484,7 +517,8 @@ const App = () => {
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-green-500/30 transition-all duration-300"
+                  whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                  className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-purple-500/50 hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-300"
                 >
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                     <div>
@@ -537,7 +571,8 @@ const App = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
-                    className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-purple-500/30 transition-all duration-300"
+                    whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                    className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-purple-500/50 hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-300"
                   >
                     <div className="flex items-start mb-4">
                       <GraduationCap className="w-6 h-6 text-green-400 mr-3 mt-1 flex-shrink-0" />
@@ -564,7 +599,8 @@ const App = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
-                    className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-yellow-500/30 transition-all duration-300"
+                    whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                    className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-yellow-500/50 hover:shadow-2xl hover:shadow-yellow-500/20 transition-all duration-300"
                   >
                     <div className="flex items-start mb-3">
                       <Award className="w-5 h-5 text-yellow-400 mr-3 mt-1 flex-shrink-0" />
@@ -611,7 +647,7 @@ const App = () => {
                 href="https://mail.google.com/mail/?view=cm&fs=1&to=omarstahi2002@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 bg-gradient-to-r from-purple-600 to-pink-600 px-8 py-4 rounded-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+                className="flex items-center gap-3 bg-gradient-to-r from-purple-600 to-pink-600 px-8 py-4 rounded-lg font-semibold hover:from-purple-700 hover:to-pink-700 hover:shadow-[0_0_30px_rgba(168,85,247,0.6)] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-slate-900"
                 aria-label="Send email to Omar Stahi"
               >
                 <Mail className="w-5 h-5" aria-hidden="true" />
@@ -622,7 +658,7 @@ const App = () => {
                 href="https://github.com/stahiomar/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 border-2 border-purple-500 px-8 py-4 rounded-lg font-semibold hover:bg-purple-500/20 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+                className="flex items-center gap-3 border-2 border-purple-500 px-8 py-4 rounded-lg font-semibold hover:bg-purple-500/20 hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-slate-900"
                 aria-label="Visit Omar Stahi's GitHub profile"
               >
                 <Github className="w-5 h-5" aria-hidden="true" />
@@ -632,7 +668,7 @@ const App = () => {
                 href="https://www.linkedin.com/in/omar-stahi/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 border-2 border-blue-500 px-8 py-4 rounded-lg font-semibold hover:bg-blue-500/20 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+                className="flex items-center gap-3 border-2 border-blue-500 px-8 py-4 rounded-lg font-semibold hover:bg-blue-500/20 hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900"
                 aria-label="Visit Omar Stahi's LinkedIn profile"
               >
                 <Linkedin className="w-5 h-5" aria-hidden="true" />
