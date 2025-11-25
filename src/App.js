@@ -521,7 +521,7 @@ const App = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              Academic Projects
+              Featured Projects
             </motion.h2>
 
             <motion.div
