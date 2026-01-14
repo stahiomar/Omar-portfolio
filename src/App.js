@@ -85,6 +85,19 @@ const App = () => {
 
   const projects = [
     {
+      title: 'RepoMind – AI-Powered Developer Productivity Platform',
+      year: '2026',
+      description: [
+        "Designed and developed RepoMind, an AI-driven platform acting as a 'second brain' for developers to improve productivity and knowledge sharing.",
+        "Implemented AI daily digests that automatically summarize a developer’s daily development activity for standups, work logs, and progress tracking.",
+        "Developed an 'Explain Repo' feature specifically designed to help new team members onboard faster by analyzing the repository and generating clear explanations of the project’s purpose, architecture, key design decisions, and setup instructions.",
+        "Integrated Gemini Flash for fast and efficient repository analysis and natural language summarization.",
+        "Built a scalable backend using Node.js, with PostgreSQL for persistent data storage and Redis for caching and performance optimization.",
+        "Created a modern, responsive frontend using React and TypeScript."
+      ],
+      technologies: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Redis', 'Gemini Flash']
+    },
+    {
       title: 'Urban Navigation System with Integrated Tram Guide',
       year: '2025',
       description: [
