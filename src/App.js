@@ -21,7 +21,7 @@ const App = () => {
     frontend: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Bootstrap', 'Angular'],
     backend: ['Spring boot', 'Python', 'Django', 'REST APIs', 'GraphQL', 'JWT'],
     databases: ['MongoDB', 'PostgreSQL', 'MySQL', 'MariaDB', 'AmazonS3'],
-    devops: ['Docker', 'Jenkins', 'Git', 'CI/CD', 'Linux']
+    devops: ['Docker', 'Jenkins', 'Git', 'CI/CD', 'Linux', 'Kubernetes', 'Helm', 'Terraform', 'Gitlab CI/CD']
   };
 
   const experience = [
@@ -30,22 +30,33 @@ const App = () => {
       company: 'Marketing Confort',
       period: '2025 (6 months)',
       description: [
-        "Participated in the design and development of a company intranet based on a microservices architecture.",
-        "Implemented absence management and secrets management modules with Next.js (frontend) and Spring Boot (backend).",
-        "Developed the KeyStore module for secure management of technical keys and secrets (API keys, tokens, credentials).",
-        "Built the employee profile page allowing collaborators to view their personal information in the intranet.",
-        "Developed an intranet interface to consult and update backend configurations without accessing the source code."
+        'Developed a company intranet based on a microservices architecture.',
+        'Implemented business modules using Spring Boot and React/Next.js.',
+        'Designed and maintained robust GitLab CI/CD pipelines to automate build, integration, deployment, and delivery processes.',
+        'Developed the KeyStore module for secure management of technical keys and secrets (API keys, tokens, and credentials).',
+        'Containerized applications with Docker and deployed them on Kubernetes.',
+        'Collaborated with the project team on the functional and technical evolution of the platform.',
+        'Developed a local conversational chatbot powered by an open-source LLM running offline with Ollama.'
       ],
       technologies: [
         'Spring Boot',
+        'Spring JPA',
+        'Spring Cloud',
+        'Spring Security',
+        'React',
         'Next.js',
         'PostgreSQL',
         'Amazon S3',
-        'Gitlab CI/CD',
+        'JWT',
+        'OAuth',
+        'Keycloak',
+        'Git',
+        'GitLab CI/CD',
         'Docker',
         'Kubernetes',
-        'Keycloak',
-        'Nexus'
+        'Nexus',
+        'LLM',
+        'Ollama'
       ]
     },
     {
